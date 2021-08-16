@@ -1,20 +1,15 @@
-let characterName = "";
-characterName = prompt("Please enter character name:");            
+let characterName = "Zhloborel";
 
-// Rewrite both rolld6() & roll3d6() as a single function that takes number of dice to be rolled
-// and their size (number of sides) and returns the result as an array (like [x, x, x] for 3d).
+// Temorary string for character name display
+// <h2 class="characterName">Character Name</h2>
 
-function rolld6() {
-    let d6Roll = Math.floor(Math.random() * 6) + 1;
-        return d6Roll;
-    }            
-
-function roll3d6() {
-    let threeD6Roll = [];
-    for (let i = 1; i <= 3; i++) {
-        threeD6Roll.push(rolld6());
+function diceRoll(diceNumber, dieSize) {
+    let rollResultsArray = [];
+    for (i = 1; i <= diceNumber; i++) {
+        let dieRoll = Math.floor(Math.random() * dieSize) + 1;
+        rollResultsArray.push(dieRoll);
     }
-    return threeD6Roll;
+    return rollResultsArray;
 }
 
 let stats = [
@@ -27,15 +22,28 @@ let stats = [
 ];
             
 for (let i = 0; i < 6; i++) {
-    stats[i].roll = roll3d6();
+    stats[i].roll = diceRoll(3, 6);
     for (let j = 0; j <= 2; j++) {
         stats[i].value = stats[i].value + stats[i].roll[j];
     }
-} 
+}
 
+function saveAndRoll() {
+    let nameEntered = document.getElementsByClassName('characterName')[0].value;
+    const nameDisplay = document.getElementById('nameInput');
+    const buttonDisplay = document.getElementById('rollButton');
+    if (nameEntered === "") {
+        nameEntered = "Zhloborel";
+    }
+    nameDisplay.innerHTML = '<p2>' + nameEntered + '</p2>';
+    rollButton.innerHTML = '';
+};
 
-console.log("Character name:", characterName);
-for (let i = 0; i <= 5; i++) {
-    console.log(stats[i].name, stats[i].value, "- dice rolled for", 
-    stats[i].name, stats[i].roll[0], stats[i].roll[1], stats[i].roll[2]);
-}            
+// console.log("Character name:", characterName);
+// for (let i = 0; i <= 5; i++) {
+//     console.log(stats[i].name, stats[i].value, "- dice rolled for", 
+//     stats[i].name, stats[i].roll[0], stats[i].roll[1], stats[i].roll[2]);
+// }
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', () => saveAndRoll());

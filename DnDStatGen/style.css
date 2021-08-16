@@ -2,11 +2,23 @@ h1 {
     text-align: center;
 }
 
-h2 {
-    text-align: center;
+#nameInput {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .stat {
     display: flex;
     justify-content:space-evenly;
+}
+
+button {
+    text-align: center;
+}
+
+#rollButton {
+    display: flex;
+    justify-content: center;
 }
