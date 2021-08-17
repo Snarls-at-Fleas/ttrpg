@@ -2,23 +2,20 @@ h1 {
     text-align: center;
 }
 
-#nameInput {
+.charSheets {
     display: flex;
-    justify-content: center;
-    font-size: x-large;
-    font-weight: bold;
+    justify-content: left;
+}
+
+.character {
+    border-style: double;
+    border-width: 5px;
+    padding: 5px 25px 5px 25px;
+    margin: 25px;
+    box-shadow: 11px 11px 10px 1px grey;
+    width: 250px;
 }
 
 .stat {
-    display: flex;
-    justify-content:space-evenly;
-}
-
-button {
-    text-align: center;
-}
-
-#rollButton {
-    display: flex;
-    justify-content: center;
+    text-align: left;
 }
